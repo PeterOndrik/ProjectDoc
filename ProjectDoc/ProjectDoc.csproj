@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FF635EE8-E563-492B-8FB1-27153E20C6C8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ProjectDoc</RootNamespace>
+    <AssemblyName>ProjectDoc</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Factories\DefaultProjectElementFactory.cs" />
+    <Compile Include="Factories\DefaultProjectOperationFactory.cs" />
+    <Compile Include="Factories\DefaultShape2DFactory.cs" />
+    <Compile Include="Factories\IProjectElementFactory.cs" />
+    <Compile Include="Factories\IProjectOperationFactory.cs" />
+    <Compile Include="Factories\IShape2DFactory.cs" />
+    <Compile Include="Model\CompositeProjectElement.cs" />
+    <Compile Include="Model\Connection.cs" />
+    <Compile Include="Model\Document.cs" />
+    <Compile Include="Model\EmptyElement.cs" />
+    <Compile Include="Model\Exceptions\ProjectElementException.cs" />
+    <Compile Include="Model\Exceptions\ProjectElementNotImplementedException.cs" />
+    <Compile Include="Model\IDataOutput.cs" />
+    <Compile Include="Model\IFile.cs" />
+    <Compile Include="Model\IDataInput.cs" />
+    <Compile Include="Model\Input.cs" />
+    <Compile Include="Model\Operator.cs" />
+    <Compile Include="Model\Output.cs" />
+    <Compile Include="Model\Project.cs" />
+    <Compile Include="Model\ProjectElementExtension.cs" />
+    <Compile Include="Model\Shapes\Decorators\Shape2DRotation.cs" />
+    <Compile Include="Model\Shapes\Decorators\Shape2DDecorator.cs" />
+    <Compile Include="Model\Shapes\Shape2DInput.cs" />
+    <Compile Include="Model\Shapes\Shape2DInputPoint.cs" />
+    <Compile Include="Model\Shapes\Shape2DLine.cs" />
+    <Compile Include="Model\Shapes\Shape2DOutput.cs" />
+    <Compile Include="Model\Shapes\Shape2DOutputPoint.cs" />
+    <Compile Include="Model\Shapes\Shape2DPoint.cs" />
+    <Compile Include="Model\Shapes\Shape2DRectangle.cs" />
+    <Compile Include="Model\Shapes\Shape2DTriangle.cs" />
+    <Compile Include="Operations\Interpreting.cs" />
+    <Compile Include="Operations\ProjectOperation.cs" />
+    <Compile Include="View\ProjectDrawingView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\ProjectDrawingView.Designer.cs">
+      <DependentUpon>ProjectDrawingView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ProjectElement.cs" />
+    <Compile Include="Model\Shapes\HitSpot.cs" />
+    <Compile Include="Model\Shapes\IShape2D.cs" />
+    <Compile Include="Model\IProjectElement.cs" />
+    <Compile Include="Model\Shapes\CompositeShape2D.cs" />
+    <Compile Include="Model\Shapes\Shape2DEmpty.cs" />
+    <Compile Include="Model\Shapes\Shape2D.cs" />
+    <Compile Include="Model\Structure\IProjectStructure.cs" />
+    <Compile Include="Model\Structure\ProjectStructureEventArgs.cs" />
+    <Compile Include="Model\XmlFile.cs" />
+    <Compile Include="Operations\IProjectOperation.cs" />
+    <Compile Include="Operations\ProjectVisitorEventArgs.cs" />
+    <Compile Include="ProjectService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="View\ProjectDrawingView.resx">
+      <DependentUpon>ProjectDrawingView.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
