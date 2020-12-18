@@ -1,7 +1,7 @@
 # ProjectDoc
 The ProjectDoc is a library to provide functionality for drawing process flow diagrams.
 ## Example:
-![ProjectDoc Diagram Example](ProjectDocExample.PNG "Figure 1: ProjectDoc Diagram Example")
+![ProjectDoc Diagram Example](ProjectDocExample.png)
 ```c#
 IProjectElementFactory elFactory = new DefaultProjectElementFactory();
 
